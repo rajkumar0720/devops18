@@ -25,7 +25,7 @@ status = "Enabled"
 
 terraform {
   backend "s3" {
-    bucket = "sm7243.flm.bucket"
+    bucket = "sm7000.flm.bucket"
     key    = "prod/terraform.tfstate"
     region = "ap-south-1"
   }
