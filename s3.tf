@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "one" {
-  bucket = "sm7243.flm.bucket"
+  bucket = "sm7244.flm.bucket"
 }
 
 resource "aws_s3_bucket_ownership_controls" "two" {
@@ -21,6 +21,14 @@ bucket = aws_s3_bucket.one.id
 versioning_configuration {
 status = "Enabled"
 }
+}
+
+terraform {
+  backend "s3" {
+    bucket = "sm7244.flm.bucket"
+    key    = "prod/terraform.tfstate"
+    region = "ap-south-1"
+  }
 }
 
 
