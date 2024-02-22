@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "one" {
-  bucket = "sm7000.flm.bucket"
+  bucket = "sm7001.flm.bucket"
 }
 
 resource "aws_s3_bucket_ownership_controls" "two" {
@@ -23,12 +23,5 @@ status = "Enabled"
 }
 }
 
-terraform {
-  backend "s3" {
-    bucket = "sm7000.flm.bucket"
-    key    = "prod/terraform.tfstate"
-    region = "ap-south-1"
-  }
-}
 
 
