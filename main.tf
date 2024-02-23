@@ -1,7 +1,7 @@
 resource "aws_launch_configuration" "web_server_as" {
-    image_id           = "ami-06b72b3b2a773be2b"
+    image_id           = "ami-00b8917ae86a424c9"
     instance_type = "t2.micro"
-    key_name = "MYNewKey"
+    key_name = "ansible-kp"
 }
    
 
@@ -9,7 +9,7 @@ resource "aws_launch_configuration" "web_server_as" {
   resource "aws_elb" "web_server_lb"{
      name = "web-server-lb"
      security_groups = [aws_security_group.web_server.id]
-     subnets = ["subnet-01df063a2a0627943", "subnet-0e491d2ab47db4736"]
+     subnets = ["subnet-06bf36ef35554f526", "subnet-04215682caa464cc3"]
      listener {
       instance_port     = 8000
       instance_protocol = "http"
@@ -28,7 +28,6 @@ resource "aws_autoscaling_group" "web_server_asg" {
     desired_capacity     = 2
     health_check_type    = "EC2"
     load_balancers       = [aws_elb.web_server_lb.name]
-    availability_zones    = ["ap-south-1a", "ap-south-1b"] 
+    availability_zones    = ["us-east-1a", "us-east-1b"] 
     
   }
-
