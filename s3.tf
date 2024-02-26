@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "one" {
-  bucket = "rk777.raj.bucket"
+  bucket = "rk666.rk.bucket"
 }
 
 resource "aws_s3_bucket_ownership_controls" "two" {
@@ -16,10 +16,5 @@ resource "aws_s3_bucket_acl" "three" {
   acl    = "private"
 }
 
-resource "aws_s3_bucket_versioning" "three" {
-bucket = aws_s3_bucket.one.id
-versioning_configuration {
-status = "Enabled"
-}
-}
+
 
